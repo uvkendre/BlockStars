@@ -1,8 +1,3 @@
-# React + Vite
+# BlockStars
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern, interactive Head & Tail game built with React, Tailwind CSS, and Framer Motion. Experience the classic coin toss game with a sleek dark theme, smooth animations, and responsive design. Features include an animated starfield background, toast notifications, and mobile-friendly interface. Built with React 18, Vite, Three.js, and deployed on Netlify. Play by selecting 'H' (Head) or 'T' (Tail) and watch as your selections form dynamic columns. Clone the repo, run `npm install` and `npm run dev` to start developing. [Live Demo](https://blockstars.netlify.app) | [GitHub](https://github.com/uvkendre/BlockStars) | MIT Licensed
