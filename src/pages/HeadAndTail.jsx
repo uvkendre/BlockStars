@@ -46,39 +46,32 @@ const HeadAndTail = () => {
     setTimeout(() => {
       // Create a deep copy of columns
       const newColumns = JSON.parse(JSON.stringify(columns));
-      let columnUpdated = false;
       
       if (newColumns.length === 0) {
         // First selection
         newColumns.push([selectedValue]);
-        columnUpdated = true;
       } else {
         // Check if we can add to an existing column
+        let added = false;
+        
         for (let i = 0; i < newColumns.length; i++) {
           const column = newColumns[i];
           const lastValue = column[column.length - 1];
           
           if (lastValue === selectedValue) {
             column.push(selectedValue);
-            columnUpdated = true;
+            added = true;
             break;
           }
         }
         
         // If couldn't add to existing column, create a new one
-        if (!columnUpdated) {
-          // Find the shortest column to maintain balance
-          let shortestColumnIndex = 0;
-          let minLength = newColumns[0].length;
-          
-          for (let i = 1; i < newColumns.length; i++) {
-            if (newColumns[i].length < minLength) {
-              minLength = newColumns[i].length;
-              shortestColumnIndex = i;
-            }
-          }
-          
-          newColumns[shortestColumnIndex].push(selectedValue);
+        if (!added) {
+          // Find the maximum column height
+          const maxHeight = Math.max(0, ...newColumns.map(col => col.length));
+          const newColumn = Array(maxHeight).fill('');
+          newColumn.push(selectedValue);
+          newColumns.push(newColumn);
         }
       }
       
